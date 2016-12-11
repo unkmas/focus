@@ -36,7 +36,7 @@ module Focus
     end
 
     def parse(response)
-      JSON.parse(response.body)
+      Response.new JSON.parse(response.body)
     end
   end
 end

@@ -1,6 +1,7 @@
 require_relative 'focus/version'
 require_relative 'focus/methods'
 require_relative 'focus/http_client'
+require_relative 'focus/response'
 
 module Focus
   class Client
