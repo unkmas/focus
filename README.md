@@ -1,6 +1,6 @@
 # Focus
 
-TODO: Write a gem description
+This gem is a wrapper for SKB Kontur [Kontur.Focus](https://focus.kontur.ru/) service
 
 ## Installation
 
@@ -17,9 +17,15 @@ Or install it yourself as:
     $ gem install focus
 
 ## Usage
-
-TODO: Write usage instructions here
-
+```ruby
+    client = Focus::Client.new('YOUR_API_KEY')
+    company = client.requisites.get(inn: '6663003127').first
+    company.inn # 6663003127
+    company.ogrn # 1026605606620
+    company.name.full # Закрытое акционерное общество "Производственная фирма "СКБ Контур"
+    company.name.to_s # Закрытое акционерное общество "Производственная фирма "СКБ Контур"
+    company.name.short # ЗАО "ПФ "СКБ Контур"
+```
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/focus/fork )
