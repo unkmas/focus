@@ -15,7 +15,7 @@ describe Focus::Methods::Requisites do
       end
 
       let(:converted) do
-        {method: 'req', inn: ['company1_inn'], ogrn: ['company2_ogrn', 'company3_ogrn']}
+        {method: 'req', inn: 'company1_inn', ogrn: 'company2_ogrn,company3_ogrn'}
       end
 
       after { get }
