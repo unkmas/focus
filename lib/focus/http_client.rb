@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require_relative 'http_client/error_handler'
 
 module Focus
   class HttpClient
@@ -13,10 +14,10 @@ module Focus
 
     def get(method:, **params)
       response = Net::HTTP.get_response url(method: method, **params)
-      puts response.inspect
-      raise 'Something gone wrong' unless response.is_a?(Net::HTTPSuccess)
 
-      parse(response)
+      error_handler.check_response(response) do |clean_response|
+        parse(clean_response)
+      end
     end
 
     private
@@ -37,6 +38,10 @@ module Focus
 
     def parse(response)
       Response.new JSON.parse(response.body)
+    end
+
+    def error_handler
+      ErrorHandler.new
     end
   end
 end
