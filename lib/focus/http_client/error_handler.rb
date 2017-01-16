@@ -1,6 +1,7 @@
 module Focus
   class HttpClient
     InvalidApiKey = Class.new(StandardError)
+    UnknownError  = Class.new(StandardError)
 
     class ErrorHandler
       def check_response(response)
@@ -22,7 +23,7 @@ module Focus
         when Net::HTTPForbidden
           raise InvalidApiKey.new
         else
-          raise 'Sonmething wierd is happened'
+          raise UnknownError.new(response.body)
         end
       end
     end
