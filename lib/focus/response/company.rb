@@ -1,7 +1,12 @@
+require_relative 'company/requisites'
 module Focus
   class Response
     class Company
-      attr_reader :inn, :ogrn, :name
+      extend Forwardable
+
+      attr_reader :name, :requisites
+
+      def_delegators :@requisites, *Requisites::FIELDS
 
       def self.build(attributes)
         if attributes['IP']
@@ -18,8 +23,7 @@ module Focus
       private
 
       def build_requisites(attributes)
-        @inn  = attributes['inn']
-        @ogrn = attributes['ogrn']
+        @requisites = Requisites.new(attributes)
       end
     end
   end

@@ -17,6 +17,11 @@ module Focus
 
         @name = Name.new(attributes['UL']['legalName'])
       end
+
+      def build_requisites(attributes)
+        super
+        @requisites.assign_attributes(attributes['UL'])
+      end
     end
   end
 end
