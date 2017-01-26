@@ -20,5 +20,3 @@ module Focus
     end
   end
 end
-
-require_relative 'legal_company/name'

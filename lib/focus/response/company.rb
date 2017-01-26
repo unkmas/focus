@@ -24,7 +24,3 @@ module Focus
     end
   end
 end
-
-
-require_relative 'entrepreneur'
-require_relative 'legal_company'

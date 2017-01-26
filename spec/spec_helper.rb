@@ -1,3 +1,4 @@
+require 'focus'
 require 'simplecov'
 require 'webmock/rspec'
 

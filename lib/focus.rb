@@ -2,6 +2,10 @@ require_relative 'focus/version'
 require_relative 'focus/methods'
 require_relative 'focus/http_client'
 require_relative 'focus/response'
+require_relative 'focus/response/company'
+require_relative 'focus/response/legal_company'
+require_relative 'focus/response/legal_company/name'
+require_relative 'focus/response/entrepreneur'
 
 module Focus
   class Client
