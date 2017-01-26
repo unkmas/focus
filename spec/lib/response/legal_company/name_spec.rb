@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Focus::Response::Company::Name do
+describe Focus::Response::LegalCompany::Name do
   let(:name) { described_class.new(attributes) }
   let(:attributes) do
     {

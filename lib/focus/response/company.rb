@@ -1,9 +1,15 @@
-require_relative 'company/name'
-
 module Focus
   class Response
     class Company
       attr_reader :inn, :ogrn, :name
+
+      def self.build(attributes)
+        if attributes['IP']
+          Entrepreneur.new(attributes)
+        else
+          LegalCompany.new(attributes)
+        end
+      end
 
       def initialize(attributes)
         build_requisites(attributes)
@@ -14,8 +20,11 @@ module Focus
       def build_requisites(attributes)
         @inn  = attributes['inn']
         @ogrn = attributes['ogrn']
-        @name = Name.new(attributes['UL']['legalName'])
       end
     end
   end
 end
+
+
+require_relative 'entrepreneur'
+require_relative 'legal_company'

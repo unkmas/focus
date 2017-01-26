@@ -1,7 +1,6 @@
 module Focus
   class Response
-    class Company
-      class Name
+    class LegalCompany::Name
         attr_accessor :short, :full
 
         def initialize(attributes)
@@ -13,7 +12,6 @@ module Focus
         def to_s
           full
         end
-      end
     end
   end
 end

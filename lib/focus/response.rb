@@ -25,7 +25,7 @@ module Focus
     private
 
     def build_company(company_attributes)
-      Company.new(company_attributes)
+      Company.build(company_attributes)
     end
   end
 end
